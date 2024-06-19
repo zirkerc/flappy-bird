@@ -1,0 +1,15 @@
+{
+  "name": "flappy-birds",
+  "version": "1.0.0",
+  "description": "Phase 1\r [ ] Draw the Bird\r [ ] Make Bird Move",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
