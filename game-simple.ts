@@ -32,7 +32,7 @@
             }
         }));
 
-        let bird = engine.addGameObject(new Bird({
+        let flappy = engine.addGameObject(new Bird({
             init() {
                 this.name = "Flappy";
                 this.position = engine.getCenter();
@@ -53,7 +53,7 @@
             switch (e.key) {
                 case ' ':
                     if (gameState.alive) {
-                        bird.flap();
+                        flappy.flap();
                     } else {
                         resetGame();
                     }
@@ -109,9 +109,9 @@
 
         function resetGame() {
             score = 0;
-            bird.position = engine.getCenter();
-            bird.position.x = engine.canvas.width / 4;
-            bird.velocity.y = 0;
+            flappy.position = engine.getCenter();
+            flappy.position.x = engine.canvas.width / 4;
+            flappy.velocity.y = 0;
 
             pipes.forEach(pipe => {
                 pipe.reset();
@@ -135,7 +135,7 @@
                 pipeCount,
                 top, bottom, {
                 update(frame) {
-                    if (this.position.x <= bird.position.x && this.prevPosition.x > bird.prevPosition.x) {
+                    if (this.position.x <= flappy.position.x && this.prevPosition.x > flappy.prevPosition.x) {
                         score++;
                         scoreSound.play();
                     }
@@ -329,4 +329,4 @@
             ctx.stroke();
         }
     }
-})()
+})();

@@ -5,6 +5,7 @@ interface GameEngineParameters {
     backgroundColor?: string;
     ignoreCollisions?: Record<string, Set<string>>;
 }
+
 class GameEngine {
     hitObjs: Set<GameObject>;
     getCenter(): Vector {
@@ -152,12 +153,9 @@ class GameEngine {
                         bb1.y <= bb2.y + bb2.height &&
                         bb1.x + bb1.width >= bb2.x &&
                         bb1.x <= bb2.x + bb2.width;
-
                 }
             }
             return overlaps;
-
-
         }
     }
 
@@ -172,7 +170,13 @@ interface GameObjectCallbacks {
     draw?: (this: GameObject, ctx: CanvasRenderingContext2D) => void;
     onOverlap?: (this: GameObject, other: GameObject) => void;
     init?: (this: GameObject) => void;
+}
 
+interface GameObjectCallbacksTyped<T extends GameObject = GameObject> {
+    update?: (this: T, frame: UpdateFrame) => void;
+    draw?: (this: T, ctx: CanvasRenderingContext2D) => void;
+    onOverlap?: (this: T, other: GameObject) => void;
+    init?: (this: T) => void;
 }
 
 class GameObject {
