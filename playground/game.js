@@ -2,9 +2,9 @@
 (() => {
     let gameSprites = new Image();
     let spriteSources = [
-        "./images/flappy-bird-set.png",
-        "./images/flappy-bird-set-2.png",
-        "./images/flappy-bird-set-3.png"
+        "../images/flappy-bird-set.png",
+        "../images/flappy-bird-set-2.png",
+        "../images/flappy-bird-set-3.png"
     ];
     let spriteSourcesIndex = 0;
     gameSprites.src = spriteSources[spriteSourcesIndex];
@@ -27,8 +27,8 @@
             }
         });
         window.engine = engine;
-        let scoreSound = new Sound("./audio/sfx_point.wav");
-        let hitPipeSound = new Sound("./audio/sfx_hit.wav");
+        let scoreSound = new Sound("../audio/sfx_point.wav");
+        let hitPipeSound = new Sound("../audio/sfx_hit.wav");
         let gameState = {
             alive: true,
         };
@@ -298,7 +298,7 @@
                 }
             ]);
             this.collider = new BoxCollider(this.image.spriteData[0].width * .8, this.image.spriteData[0].height * .8);
-            this.flapSound = new Sound("./audio/sfx_wing.wav");
+            this.flapSound = new Sound("../audio/sfx_wing.wav");
         }
         update(frame) {
             this.velocity.y += this.gravity * frame.deltaTime;
